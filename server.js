@@ -14,7 +14,7 @@ let transport = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'mbensan.test@gmail.com',
-    pass: 'dgdxbpvqozekxwkn'
+    pass: clave
   }
 })
 
@@ -128,11 +128,6 @@ app.delete('/gastos', async (req, res) => {
     }
   }
 })
-// dejar para el final
-
-// . Enviar un correo electrónico desde el profe al profe
-// 'mbensan.test@gmail.com'
-// const receivers = 'mbensan@outlook.com'
 
 /* app.get('*', (req, res) => {
   res.send(`
