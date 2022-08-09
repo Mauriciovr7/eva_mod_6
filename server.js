@@ -5,6 +5,7 @@ const fs = require('fs').promises
 const DB = require('./functionsDB'); // Funciones para guardar los datos en el archivo json 
 const f = require('./functionsUtils'); // Funciones útiles
 const nodemailer = require('nodemailer')
+const {clave, correo} = require('./clave.js')
 
 const app = express()
 const port = 3000
@@ -13,7 +14,7 @@ app.use(express.static('public'))
 let transport = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'mbensan.test@gmail.com',
+    user: correo,
     pass: clave
   }
 })
@@ -67,8 +68,8 @@ app.post('/gastos', async (req, res) => {
   // envío de correo para verificar esta funcionalidad ******************
 
   await transport.sendMail({
-    from: 'mbensan.test@gmail.com', // sender address
-    to: 'mbensan@outlook.com', // list of receivers
+    from: correo, // sender address
+    to: correo, // list of receivers
     subject: 'Roommates', // Subject line
     html: 'Nuevo gasto en Roommates', // html body
   })
