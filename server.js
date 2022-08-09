@@ -66,12 +66,12 @@ app.post('/gastos', async (req, res) => {
 
   // envío de correo para verificar esta funcionalidad ******************
 
-  /* await transport.sendMail({
+  await transport.sendMail({
     from: 'mbensan.test@gmail.com', // sender address
     to: 'mbensan@outlook.com', // list of receivers
     subject: 'Roommates', // Subject line
     html: 'Nuevo gasto en Roommates', // html body
-  }) */
+  })
 
   try {
     const form = await f.getForm(req) // functionsUtils
